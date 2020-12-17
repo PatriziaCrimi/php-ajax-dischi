@@ -57,17 +57,17 @@
         <!-- Music discs cards section -->
         <div class="row">
           <div id="cards-container">
-            <div class="music-disc">
-              <?php
-                foreach ($discs_list as $disc) { ?>
+            <?php
+              foreach ($discs_list as $disc) { ?>
+                <div class="music-disc">
                   <img class="disc-poster" src="<?php echo($disc['poster']) ?>" alt="Disc img">
                   <h2><?php echo($disc['title']) ?></h2>
                   <h3><?php echo($disc['author']) ?></h3>
                   <small><?php echo($disc['year']) ?></small>
-                <?php
-              }
-              ?>
-            </div>
+                </div>
+              <?php
+            }
+            ?>
           </div>
         </div>
       </div>  <!-- Closing container -->

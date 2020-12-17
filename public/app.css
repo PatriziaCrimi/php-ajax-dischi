@@ -558,6 +558,6 @@ select#sort-year:hover {
   margin-bottom: 10px;
 }
 
-.music-disc > h3 {
+.music-disc > h2 {
   max-width: 150px;
 }
