@@ -1,19 +1,18 @@
 <!-- ............................. PHP ............................. -->
 <?php
   /* ASSIGNMENT
-  Per prima cosa stampate i dischi in pagina utilizzando solo il php, includendo il file con l'array di dati e utilizzando il ciclo foreach.
-  Poi stampate i dischi in pagina facendo una chiamata ajax al file php con i dati, utilizzando jQuery e Handlebars per appendere le card.
+  1. Per prima cosa stampate i dischi in pagina utilizzando solo il php, includendo il file con l'array di dati e utilizzando il ciclo foreach.
+  2. Poi stampate i dischi in pagina facendo una chiamata ajax al file php con i dati, utilizzando jQuery e Handlebars per appendere le card.
   BONUS: create una select con i generi e applicate un filtro alle card, facendo un'altra chiamata ajax.
   Ciò significa che il filtro per genere deve essere applicato lato back-end, ossia il php restituisce solo i dischi del genere selezionato.
   */
+
+  include 'discs.php';
 
   // -------------- Initialization of Variables --------------
 
   $title = 'PHP Ajax Discs';
   $genres_list = 'genre';
-  $disc_titles = 'title';
-  $disc_authors = 'author';
-  $disc_years = 'author';
 ?>
 
 <!-- ............................. HTML ............................. -->
@@ -41,7 +40,9 @@
             <p>Select the music genre:</p>
             <select id="select-genre">
               <option value="all">All</option>
-              <option><?php echo($genres) ?></option>
+              <option value="<?php echo($genres) ?>">
+                <?php echo($genres) ?>
+              </option>
             </select>
           </div>
           <div class="col-12 col-lg-6">
@@ -57,10 +58,15 @@
         <div class="row">
           <div id="cards-container">
             <div class="music-disc">
-              <img class="disc-poster" src="" alt="Disc img">
-              <h3><?php echo($disc_titles) ?></h3>
-              <h4><?php echo($disc_authors) ?></h4>
-              <small><?php echo($disc_years) ?></small>
+              <?php
+                foreach ($discs_list as $disc) { ?>
+                  <img class="disc-poster" src="<?php echo($disc['poster']) ?>" alt="Disc img">
+                  <h2><?php echo($disc['title']) ?></h2>
+                  <h3><?php echo($disc['author']) ?></h3>
+                  <small><?php echo($disc['year']) ?></small>
+                <?php
+              }
+              ?>
             </div>
           </div>
         </div>

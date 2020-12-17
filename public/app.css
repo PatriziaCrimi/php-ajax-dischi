@@ -362,14 +362,10 @@ h1 {
 }
 
 h2 {
-  font-size: 20px;
-}
-
-h3 {
   font-size: 18px;
 }
 
-h4 {
+h3 {
   color: #b3b3b3;
   padding: 5px 0;
 }
@@ -418,27 +414,10 @@ h1::after {
 
 h1::before,
 h1::after {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 700;
-  font-size: 35px;
-  text-shadow: none;
-}
-
-h2::before {
-  content: "\F252";
-  margin-right: 20px;
-}
-
-h2::after {
-  content: "\F252";
-  margin-left: 20px;
-}
-
-h2::before,
-h2::after {
   font-weight: bold;
   font-family: "Font Awesome 5 Free";
-  font-size: 25px;
+  font-size: 35px;
+  text-shadow: none;
 }
 
 /* ------------------- MEDIA QUERY ------------------- */
@@ -463,15 +442,6 @@ h1::after {
 
   h1::after {
     margin-left: 20px;
-  }
-
-  h2 {
-    font-size: 30px;
-  }
-
-  h2::before,
-h2::after {
-    font-size: 30px;
   }
 }
 /* Breakpoint Medium 768px md */
@@ -526,7 +496,7 @@ h1::after {
     max-width: 1140px;
   }
 
-  h3 {
+  h2 {
     font-size: 20px;
   }
 
