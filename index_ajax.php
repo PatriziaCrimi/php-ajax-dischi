@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script type="text/javascript" src="public/app.js"></script>
     <link rel="stylesheet" href="public/app.css">
   </head>
@@ -57,20 +58,20 @@
         <!-- Music discs cards section -->
         <div class="row">
           <div id="cards-container">
-            <?php
-              foreach ($discs_list as $disc) { ?>
-                <div class="music-disc">
-                  <img class="disc-poster" src="<?php echo($disc['poster']) ?>" alt="Disc img">
-                  <h2><?php echo($disc['title']) ?></h2>
-                  <h3><?php echo($disc['author']) ?></h3>
-                  <small><?php echo($disc['year']) ?></small>
-                </div>
-              <?php
-            }
-            ?>
+
           </div>
         </div>
       </div>  <!-- Closing container -->
     </div>  <!-- Closing page-wrapper -->
+
+    <!--........................ Template Handlebars ........................-->
+    <script id="card-template" type="text/x-handlebars-template">
+      <div class="music-disc">
+        <img class="disc-poster" src="{{poster}}" alt="{{title}}">
+        <h2>{{title}}</h2>
+        <h3>{{author}}</h3>
+        <small>{{year}}</small>
+      </div>
+    </script>
   </body>
 </html>
