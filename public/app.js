@@ -93,7 +93,18 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-
+$(document).ready(function () {
+  $.ajax({
+    url: './discs.php',
+    method: 'GET',
+    success: function success() {
+      console.log('ajax call');
+    },
+    error: function error() {
+      console.log('error');
+    }
+  });
+});
 
 /***/ }),
 
