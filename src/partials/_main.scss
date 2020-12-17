@@ -1,0 +1,46 @@
+select#select-genre,
+select#sort-year {
+  cursor: pointer;
+  height: 40px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  background-color: #b3b3b3;
+  transition: filter 0.25s, border 0.25s;
+}
+
+select#select-genre:hover,
+select#sort-year:hover {
+  filter: brightness(1.2);
+  border: 2px solid #1db954;
+}
+
+#cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#cards-container > .music-disc {
+  padding: 15px;
+  transition: all 0.25s;
+}
+
+.music-disc.active:hover {
+  cursor: pointer;
+  color: #1db954;
+  filter: brightness(1.5);
+}
+
+.music-disc > img.disc-poster {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.music-disc > h3 {
+  max-width: 150px;
+}
