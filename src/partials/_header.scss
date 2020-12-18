@@ -1,1 +1,61 @@
+header {
 
+  h1::before {
+    content: '\f51f';
+    margin-right: $margin_unit;
+  }
+
+  h1::after {
+    content: '\f8d9';
+    margin-left: $margin_unit;
+  }
+
+  h1::before,
+  h1::after {
+    @include before-after;
+    font-size: $font_size * 1.5;
+    text-shadow: none;
+  }
+}
+
+/* ------------------- MEDIA QUERY ------------------- */
+
+/* Breakpoint Small 576px sm */
+@media screen and (min-width: 576px) {
+
+  header {
+
+    h1::before,
+    h1::after {
+      font-size: $font_size * 2;
+    }
+
+    h1::before {
+      margin-right: $margin_unit * 2.5;
+    }
+
+    h1::after {
+      margin-left: $margin_unit * 2.5;
+    }
+  }
+}
+
+/* Breakpoint Medium 768px md */
+@media screen and (min-width: 768px) {
+
+  header {
+
+    h1::before,
+    h1::after {
+      font-size: $font_size * 2.5;
+    }
+
+    h1::before {
+      margin-right: $margin_unit * 4;
+    }
+
+    h1::after {
+      margin-left: $margin_unit * 4;
+    }
+  }
+}

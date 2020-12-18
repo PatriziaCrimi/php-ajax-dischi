@@ -1,46 +1,95 @@
-select#select-genre,
-select#sort-year {
-  cursor: pointer;
-  height: 40px;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 16px;
-  padding: 0 10px;
-  border-radius: 5px;
-  border: 2px solid #fff;
-  background-color: #b3b3b3;
-  transition: all 0.25s ease-in-out;
+main {
+  padding-bottom: $padding_unit * 2;
+
+  section#select-sorting {
+
+    select#select-genre,
+    select#sort-year {
+      cursor: pointer;
+      height: 40px;
+      font-family: $font_family;
+      font-size: $font_size - $font_size / 5;
+      padding: 0 $padding_unit / 2;
+      border-radius: 5px;
+      border: 2px solid $third_color;
+      background-color: $secondary_color;
+      @include transition_hover;
+    }
+
+    select#select-genre:hover,
+    select#sort-year:hover {
+      filter: brightness(1.2);
+      border: 2px solid $primary_color;
+    }
+  }
+
+  section#music-discs {
+
+    #cards-container {
+      @include display-flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .music-disc {
+      padding: $padding_unit + $padding_unit / 4;
+      @include transition_hover;
+
+      img.disc-poster {
+        height: $height_unit * 3;
+        width: $width_unit;
+        border-radius: 50%;
+        margin-bottom: $margin_unit;
+      }
+    }
+
+    .music-disc:hover {
+      cursor: pointer;
+      color: $primary_color;
+      filter: brightness(1.5);
+    }
+  }
 }
 
-select#select-genre:hover,
-select#sort-year:hover {
-  filter: brightness(1.2);
-  border: 2px solid #1db954;
+/* Breakpoint Large 992px lg */
+@media screen and (min-width: 992px) {
+
+  main {
+
+    section#music-discs {
+
+      #cards-container .music-disc {
+
+        img.disc-poster {
+          margin-bottom: $margin_unit * 2;
+        }
+      }
+    }
+  }
 }
 
-#cards-container {
-  @include display-flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
+/* Breakpoint Extra Large 1200px xl */
+@media screen and (min-width: 1200px) {
+  main {
 
-#cards-container > .music-disc {
-  padding: 15px;
-  transition: all 0.25s ease-in-out;
-}
+    section#select-sorting {
 
-.music-disc:hover {
-  cursor: pointer;
-  color: #1db954;
-  filter: brightness(1.5);
-}
+      select#select-genre,
+      select#sort-year {
+        height: $height_unit;
+        font-size: $font_size - 2;
+      }
+    }
 
-.music-disc > img.disc-poster {
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
+    section#music-discs {
 
-.music-disc > h2 {
-  max-width: 150px;
+      #cards-container .music-disc {
+
+        img.disc-poster {
+          height: $height_unit * 3 + 15;
+          width: $width_unit + 15;
+        }
+      }
+    }
+  }
 }

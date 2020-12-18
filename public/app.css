@@ -355,7 +355,7 @@ h1 {
   font-weight: 900;
   letter-spacing: 1.5px;
   padding: 40px 0;
-  font-size: 32px;
+  font-size: 30px;
   color: #1db954;
   filter: brightness(1.5);
   text-shadow: 1px 1px #b3b3b3;
@@ -364,11 +364,13 @@ h1 {
 h2 {
   font-size: 20px;
   color: #1db954;
+  text-shadow: 0.5px 0.5px #b3b3b3;
   padding: 10px 0;
 }
 
 h3 {
   font-size: 18px;
+  max-width: 150px;
 }
 
 h4 {
@@ -383,6 +385,10 @@ p {
   color: #b3b3b3;
 }
 
+span {
+  color: #1db954;
+}
+
 small {
   color: #b3b3b3;
 }
@@ -391,7 +397,7 @@ small {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background-color: black;
+  background-color: #000;
 }
 
 .container {
@@ -408,24 +414,6 @@ small {
   margin: 40px 0;
 }
 
-h1::before {
-  content: "\F51F";
-  margin-right: 10px;
-}
-
-h1::after {
-  content: "\F8D9";
-  margin-left: 10px;
-}
-
-h1::before,
-h1::after {
-  font-weight: bold;
-  font-family: "Font Awesome 5 Free";
-  font-size: 35px;
-  text-shadow: none;
-}
-
 /* ------------------- MEDIA QUERY ------------------- */
 /* Breakpoint Small 576px sm */
 @media screen and (min-width: 576px) {
@@ -434,20 +422,7 @@ h1::after {
   }
 
   h1 {
-    font-size: 45px;
-  }
-
-  h1::before,
-h1::after {
     font-size: 40px;
-  }
-
-  h1::before {
-    margin-right: 20px;
-  }
-
-  h1::after {
-    margin-left: 20px;
   }
 }
 /* Breakpoint Medium 768px md */
@@ -462,20 +437,7 @@ h1::after {
   }
 
   h1 {
-    font-size: 55px;
-  }
-
-  h1::before,
-h1::after {
     font-size: 50px;
-  }
-
-  h1::before {
-    margin-right: 45px;
-  }
-
-  h1::after {
-    margin-left: 45px;
   }
 }
 /* Breakpoint Large 992px lg */
@@ -483,23 +445,15 @@ h1::after {
   .container {
     max-width: 960px;
   }
-
-  h1::before {
-    margin-right: 55px;
-  }
-
-  h1::after {
-    margin-left: 55px;
-  }
-
-  .music-disc > img.disc-poster {
-    margin-bottom: 20px;
-  }
 }
 /* Breakpoint Extra Large 1200px xl */
 @media screen and (min-width: 1200px) {
   .container {
     max-width: 1140px;
+  }
+
+  h1 {
+    font-size: 60px;
   }
 
   h3 {
@@ -509,20 +463,55 @@ h1::after {
   p {
     font-size: 22px;
   }
+}
+header h1::before {
+  content: "\F51F";
+  margin-right: 10px;
+}
+header h1::after {
+  content: "\F8D9";
+  margin-left: 10px;
+}
+header h1::before,
+header h1::after {
+  font-weight: bold;
+  font-family: "Font Awesome 5 Free";
+  font-size: 30px;
+  text-shadow: none;
+}
 
-  select#select-genre,
-select#sort-year {
-    height: 50px;
-    font-size: 18px;
+/* ------------------- MEDIA QUERY ------------------- */
+/* Breakpoint Small 576px sm */
+@media screen and (min-width: 576px) {
+  header h1::before,
+header h1::after {
+    font-size: 40px;
   }
-
-  .music-disc > img.disc-poster {
-    height: 165px;
-    width: 165px;
+  header h1::before {
+    margin-right: 25px;
+  }
+  header h1::after {
+    margin-left: 25px;
   }
 }
-select#select-genre,
-select#sort-year {
+/* Breakpoint Medium 768px md */
+@media screen and (min-width: 768px) {
+  header h1::before,
+header h1::after {
+    font-size: 50px;
+  }
+  header h1::before {
+    margin-right: 40px;
+  }
+  header h1::after {
+    margin-left: 40px;
+  }
+}
+main {
+  padding-bottom: 40px;
+}
+main section#select-sorting select#select-genre,
+main section#select-sorting select#sort-year {
   cursor: pointer;
   height: 40px;
   font-family: "Source Sans Pro", sans-serif;
@@ -533,37 +522,50 @@ select#sort-year {
   background-color: #b3b3b3;
   transition: all 0.25s ease-in-out;
 }
-
-select#select-genre:hover,
-select#sort-year:hover {
+main section#select-sorting select#select-genre:hover,
+main section#select-sorting select#sort-year:hover {
   filter: brightness(1.2);
   border: 2px solid #1db954;
 }
-
-#cards-container {
+main section#music-discs #cards-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
-
-#cards-container > .music-disc {
-  padding: 15px;
+main section#music-discs .music-disc {
+  padding: 25px;
   transition: all 0.25s ease-in-out;
 }
-
-.music-disc:hover {
-  cursor: pointer;
-  color: #1db954;
-  filter: brightness(1.5);
-}
-
-.music-disc > img.disc-poster {
+main section#music-discs .music-disc img.disc-poster {
   height: 150px;
   width: 150px;
   border-radius: 50%;
   margin-bottom: 10px;
 }
+main section#music-discs .music-disc:hover {
+  cursor: pointer;
+  color: #1db954;
+  filter: brightness(1.5);
+}
 
-.music-disc > h2 {
-  max-width: 150px;
+/* Breakpoint Large 992px lg */
+@media screen and (min-width: 992px) {
+  main section#music-discs #cards-container .music-disc img.disc-poster {
+    margin-bottom: 20px;
+  }
+}
+/* Breakpoint Extra Large 1200px xl */
+@media screen and (min-width: 1200px) {
+  main section#select-sorting select#select-genre,
+main section#select-sorting select#sort-year {
+    height: 50px;
+    font-size: 18px;
+  }
+  main section#music-discs #cards-container .music-disc img.disc-poster {
+    height: 165px;
+    width: 165px;
+  }
+}
+footer {
+  background-color: #1C1C1C;
 }

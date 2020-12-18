@@ -8,7 +8,7 @@ h1 {
   font-weight: $font_weight + $font_weight / 2;
   letter-spacing: 1.5px;
   padding: $padding_unit * 2 0;
-  font-size: $font_size + 12;
+  font-size: $font_size + $font_size / 2;
   color: $primary_color;
   filter: brightness(1.5);
   text-shadow: 1px 1px $secondary_color;
@@ -17,11 +17,13 @@ h1 {
 h2 {
   font-size: $font_size;
   color: $primary_color;
+  text-shadow: 0.5px 0.5px $secondary_color;
   padding: $padding_unit / 2 0;
 }
 
 h3 {
   font-size: $font_size - 2;
+  max-width: $width_unit;
 }
 
 h4 {
@@ -36,6 +38,10 @@ p {
   color: $secondary_color;
 }
 
+span {
+  color: $primary_color;
+}
+
 small {
   color: $secondary_color;
 }
@@ -44,7 +50,7 @@ small {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background-color: black;
+  background-color: $bg_primary_color;
 }
 
 .container {
@@ -61,24 +67,6 @@ small {
   margin: $margin_unit * 4 0;
 }
 
-h1::before {
-  content: '\f51f';
-  margin-right: $margin_unit;
-}
-
-h1::after {
-  content: '\f8d9';
-  margin-left: $margin_unit;
-}
-
-h1::before,
-h1::after {
-  @include before-after;
-  font-size: $font_size + 15;
-  text-shadow: none;
-}
-
-
 /* ------------------- MEDIA QUERY ------------------- */
 
 /* Breakpoint Small 576px sm */
@@ -88,20 +76,7 @@ h1::after {
   }
 
   h1 {
-    font-size: 45px;
-  }
-
-  h1::before,
-  h1::after {
-    font-size: 40px;
-  }
-
-  h1::before {
-    margin-right: 20px;
-  }
-
-  h1::after {
-    margin-left: 20px;
+    font-size: $font_size * 2;
   }
 }
 
@@ -112,25 +87,12 @@ h1::after {
   }
 
   .row-md {
-    display: flex;
+    @include display-flex;
     justify-content: space-around;
   }
 
   h1 {
-    font-size: 55px;
-  }
-
-  h1::before,
-  h1::after {
-    font-size: 50px;
-  }
-
-  h1::before {
-    margin-right: 45px;
-  }
-
-  h1::after {
-    margin-left: 45px;
+    font-size: $font_size * 2.5;
   }
 }
 
@@ -138,18 +100,6 @@ h1::after {
 @media screen and (min-width: 992px) {
   .container {
     max-width: 960px;
-  }
-
-  h1::before {
-    margin-right: 55px;
-  }
-
-  h1::after {
-    margin-left: 55px;
-  }
-
-  .music-disc > img.disc-poster {
-    margin-bottom: 20px;
   }
 }
 
@@ -159,22 +109,15 @@ h1::after {
     max-width: 1140px;
   }
 
+  h1 {
+    font-size: $font_size * 3;
+  }
+
   h3 {
-    font-size: 20px;
+    font-size: $font_size;
   }
 
   p {
-    font-size: 22px;
-  }
-
-  select#select-genre,
-  select#sort-year {
-    height: 50px;
-    font-size: 18px;
-  }
-
-  .music-disc > img.disc-poster {
-    height: 165px;
-    width: 165px;
+    font-size: $font_size + 2;
   }
 }

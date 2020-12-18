@@ -14,3 +14,7 @@
   display: table;
   clear: both;
 }
+
+@mixin transition_hover {
+  transition: all $hover_time ease-in-out;
+}

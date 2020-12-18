@@ -10,9 +10,13 @@ $font_weight: 600;
 $primary_color: #1db954;
 $secondary_color: #b3b3b3;
 $third_color: #fff;
+$bg_primary_color: #000;
+$bg_secondary_color: #1C1C1C;
 
 
 // Dimensions
+$width_unit: 150px;
+$height_unit: 50px;
 
 // Margins & Padding
 $padding_unit: 20px;
@@ -20,3 +24,4 @@ $margin_unit: 10px;
 
 
 // Transition times
+$hover_time: 0.25s;
