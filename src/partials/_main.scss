@@ -1,7 +1,7 @@
 main {
   padding-bottom: $padding_unit * 2;
 
-  section#select-sorting {
+  section#filters {
 
     select#select-genre,
     select#sort-year {
@@ -72,7 +72,7 @@ main {
 @media screen and (min-width: 1200px) {
   main {
 
-    section#select-sorting {
+    section#filters {
 
       select#select-genre,
       select#sort-year {

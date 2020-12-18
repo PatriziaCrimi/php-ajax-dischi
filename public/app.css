@@ -510,8 +510,8 @@ header h1::after {
 main {
   padding-bottom: 40px;
 }
-main section#select-sorting select#select-genre,
-main section#select-sorting select#sort-year {
+main section#filters select#select-genre,
+main section#filters select#sort-year {
   cursor: pointer;
   height: 40px;
   font-family: "Source Sans Pro", sans-serif;
@@ -522,8 +522,8 @@ main section#select-sorting select#sort-year {
   background-color: #b3b3b3;
   transition: all 0.25s ease-in-out;
 }
-main section#select-sorting select#select-genre:hover,
-main section#select-sorting select#sort-year:hover {
+main section#filters select#select-genre:hover,
+main section#filters select#sort-year:hover {
   filter: brightness(1.2);
   border: 2px solid #1db954;
 }
@@ -556,8 +556,8 @@ main section#music-discs .music-disc:hover {
 }
 /* Breakpoint Extra Large 1200px xl */
 @media screen and (min-width: 1200px) {
-  main section#select-sorting select#select-genre,
-main section#select-sorting select#sort-year {
+  main section#filters select#select-genre,
+main section#filters select#sort-year {
     height: 50px;
     font-size: 18px;
   }

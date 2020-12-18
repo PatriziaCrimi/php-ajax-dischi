@@ -1,5 +1,12 @@
 <?php
 
+/* ASSIGNMENT
+  1. Stampate i dischi in pagina utilizzando solo il php,includendo il file con l'array di dati e utilizzando il ciclo foreach.
+  2. Stampate i dischi in pagina facendo una chiamata ajax al file php con i dati, utilizzando jQuery e Handlebars per appendere le card.
+  BONUS: create una select con i generi e applicate un filtro alle card, facendo un'altra chiamata ajax.
+  Ciò significa che il filtro per genere deve essere applicato lato back-end, ossia il php restituisce solo i dischi del genere selezionato.
+*/
+
 $discs_list = [
     [
         'poster' => 'https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg',
@@ -73,12 +80,35 @@ $discs_list = [
     ]
 ];
 
-// Verify AJAX request
+// ---------------------------- FILTER BY GENRE ----------------------------
+// Verifying that the GET parameter exists & that the defined parameter is 'genre'
+if(!empty($_GET) && !empty($_GET['genre'])) {
+  // Storing the GET parameter 'genre' in a variable
+  $genre = $_GET['genre'];
+  // Creating an empty array to be filled with filtered discs
+  $filtered_discs_list = [];
+  // Scanning the array of discs
+  foreach ($discs_list as $disc) {
+    // Checking if the current disc genre corresponds to the selected genre
+    if($disc['genre'] === $genre) {
+      // Storing the current disc in an array
+      $filtered_discs_list[] = $disc;
+    }
+  }
+} else {
+  // If there are no parameters in the query string OR 'genre' is empty
+  $filtered_discs_list[] = $discs_list;
+}
+
+
+
+// ---------------------------- Verify AJAX request ----------------------------
+
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' ) {
 
   //request is ajax
   header('Content-Type: application/json');
-  echo json_encode($discs_list);
+  echo json_encode($filtered_discs_list);
 };
 
 ?>
