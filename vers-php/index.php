@@ -8,6 +8,18 @@
   $title = 'PHP Ajax Discs';
   $subtitle = 'PHP include';
   $credits = 'Patrizia Crimi';
+
+  // -------------- Dynamically generated genres for the select --------------
+  $genres_list = [];
+  // Scanning the array of discs
+  foreach ($discs_list as $disc) {
+    // Storing the music genre of the current disc
+    $genre = $disc['genre'];
+    // Checking if the genre is already in the array of genres
+    if(!in_array($genre, $genres_list)) {
+      $genres_list[] = $genre;
+    }
+  }
 ?>
 
 <!-- ............................. HTML ............................. -->
@@ -47,8 +59,13 @@
                 <p>Select the music genre:</p>
                 <select id="select-genre">
                   <option value="all">All</option>
-                  <option value="Rock">Rock</option>
-                  <option value="Jazz">Jazz</option>
+                  <?php foreach ($genres_list as $genre) { ?>
+                      <option value="<?php echo($genre) ?>">
+                        <?php echo($genre) ?>
+                      </option>
+                    <?php
+                  }
+                  ?>
                 </select>
               </div>
               <div class="col-12 col-lg-6">
