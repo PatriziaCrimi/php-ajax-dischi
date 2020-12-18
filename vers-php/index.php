@@ -112,7 +112,7 @@
     </div>  <!-- Closing page-wrapper -->
 
     <!--........................ Template Handlebars ........................-->
-    <script id="card-template" type="text/x-handlebars-template">
+    <script id="cards-template" type="text/x-handlebars-template">
       <div class="music-disc">
         <img class="disc-poster" src="{{poster}}" alt="{{title}}">
         <h3>{{title}}</h3>

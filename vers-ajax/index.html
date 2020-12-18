@@ -70,13 +70,20 @@
     </div>  <!-- Closing page-wrapper -->
 
     <!--........................ Template Handlebars ........................-->
-    <script id="card-template" type="text/x-handlebars-template">
+
+    <!-- Cards Template -->
+    <script id="cards-template" type="text/x-handlebars-template">
       <div class="music-disc">
         <img class="disc-poster" src="{{poster}}" alt="{{title}}">
         <h3>{{title}}</h3>
         <h3>{{author}}</h4>
         <small>{{year}}</small>
       </div>
+    </script>
+
+    <!-- Select-Options Template -->
+    <script id="options-template" type="text/x-handlebars-template">
+      <option value="{{genre}}">{{genre}}</option>
     </script>
   </body>
 </html>
