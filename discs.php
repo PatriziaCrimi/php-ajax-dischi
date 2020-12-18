@@ -81,25 +81,30 @@ $discs_list = [
 ];
 
 // ---------------------------- FILTER BY GENRE ----------------------------
+
 // Verifying that the GET parameter exists & that the defined parameter is 'genre'
 if(!empty($_GET) && !empty($_GET['genre'])) {
   // Storing the GET parameter 'genre' in a variable
   $genre = $_GET['genre'];
-  // Creating an empty array to be filled with filtered discs
-  $filtered_discs_list = [];
-  // Scanning the array of discs
-  foreach ($discs_list as $disc) {
-    // Checking if the current disc genre corresponds to the selected genre
-    if($disc['genre'] === $genre) {
-      // Storing the current disc in an array
-      $filtered_discs_list[] = $disc;
+  if($genre === 'all') {
+    // If the selected genre is "all" all the discs must be shown
+    $filtered_discs_list = $discs_list;
+  } else {
+    // Creating an empty array to be filled with filtered discs
+    $filtered_discs_list = [];
+    // Scanning the array of discs
+    foreach ($discs_list as $disc) {
+      // Checking if the current disc genre corresponds to the selected genre
+      if($disc['genre'] === $genre) {
+        // Storing the current disc in an array
+        $filtered_discs_list[] = $disc;
+      }
     }
   }
 } else {
   // If there are no parameters in the query string OR 'genre' is empty
-  $filtered_discs_list[] = $discs_list;
+  $filtered_discs_list = $discs_list;
 }
-
 
 
 // ---------------------------- Verify AJAX request ----------------------------
