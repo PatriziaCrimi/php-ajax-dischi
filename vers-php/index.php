@@ -21,6 +21,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script type="text/javascript" src="../public/app.js"></script>
     <link rel="stylesheet" href="../public/app.css">
   </head>
   <body>
@@ -44,9 +47,8 @@
                 <p>Select the music genre:</p>
                 <select id="select-genre">
                   <option value="all">All</option>
-                  <option value="<?php echo('genre') ?>">
-                    <?php echo('genre') ?>
-                  </option>
+                  <option value="Rock">Rock</option>
+                  <option value="Jazz">Jazz</option>
                 </select>
               </div>
               <div class="col-12 col-lg-6">
@@ -91,5 +93,15 @@
         </div>  <!-- Closing Footer container -->
       </footer>
     </div>  <!-- Closing page-wrapper -->
+
+    <!--........................ Template Handlebars ........................-->
+    <script id="card-template" type="text/x-handlebars-template">
+      <div class="music-disc">
+        <img class="disc-poster" src="{{poster}}" alt="{{title}}">
+        <h3>{{title}}</h3>
+        <h3>{{author}}</h4>
+        <small>{{year}}</small>
+      </div>
+    </script>
   </body>
 </html>

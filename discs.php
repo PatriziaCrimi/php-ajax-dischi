@@ -87,7 +87,7 @@ if(!empty($_GET) && !empty($_GET['genre'])) {
   // Storing the GET parameter 'genre' in a variable
   $genre = $_GET['genre'];
   if($genre === 'all') {
-    // If the selected genre is "all" all the discs must be shown
+    // If the selected genre is "all", then all the discs must be shown
     $filtered_discs_list = $discs_list;
   } else {
     // Creating an empty array to be filled with filtered discs
