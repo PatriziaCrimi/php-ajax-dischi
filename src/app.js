@@ -3,7 +3,8 @@ $(document).ready(function() {
   const source = $("#card-template").html();
   const template = Handlebars.compile(source);
 
-  // AJAX call
+  // -------------- AJAX CALL to generate Template & printing on screen --------------
+
   $.ajax({
     url: './discs.php',
     method: 'GET',
@@ -23,7 +24,10 @@ $(document).ready(function() {
       }
     },
     error: function() {
-      console.log('ERROR. Something went wrong!');
+      console.log('ERROR. Sorry, something went wrong!');
     },
   });
+
+  // -------------- AJAX CALL to sort by genre --------------
+
 });

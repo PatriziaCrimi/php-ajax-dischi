@@ -15,10 +15,16 @@ h1 {
 }
 
 h2 {
-  font-size: $font_size - 2;
+  font-size: $font_size;
+  color: $primary_color;
+  padding: $padding_unit / 2 0;
 }
 
 h3 {
+  font-size: $font_size - 2;
+}
+
+h4 {
   color: $secondary_color;
   padding: $padding_unit / 4 0;
 }
@@ -153,7 +159,7 @@ h1::after {
     max-width: 1140px;
   }
 
-  h2 {
+  h3 {
     font-size: 20px;
   }
 

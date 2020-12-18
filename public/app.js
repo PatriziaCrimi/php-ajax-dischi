@@ -95,7 +95,7 @@
 
 $(document).ready(function () {
   var source = $("#card-template").html();
-  var template = Handlebars.compile(source); // AJAX call
+  var template = Handlebars.compile(source); // -------------- AJAX CALL to generate Template & printing on screen --------------
 
   $.ajax({
     url: './discs.php',
@@ -116,9 +116,9 @@ $(document).ready(function () {
       }
     },
     error: function error() {
-      console.log('ERROR. Something went wrong!');
+      console.log('ERROR. Sorry, something went wrong!');
     }
-  });
+  }); // -------------- AJAX CALL to sort by genre --------------
 });
 
 /***/ }),

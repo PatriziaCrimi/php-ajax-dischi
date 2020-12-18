@@ -1,16 +1,17 @@
 <!-- ............................. PHP ............................. -->
 <?php
   /* ASSIGNMENT
-  1. Per prima cosa stampate i dischi in pagina utilizzando solo il php, includendo il file con l'array di dati e utilizzando il ciclo foreach.
-  2. Poi stampate i dischi in pagina facendo una chiamata ajax al file php con i dati, utilizzando jQuery e Handlebars per appendere le card.
-  BONUS: create una select con i generi e applicate un filtro alle card, facendo un'altra chiamata ajax.
-  Ciò significa che il filtro per genere deve essere applicato lato back-end, ossia il php restituisce solo i dischi del genere selezionato.
+    Stampate i dischi in pagina facendo una chiamata ajax al file php con i dati, utilizzando jQuery e Handlebars per appendere le card.
+    BONUS: create una select con i generi e applicate un filtro alle card, facendo un'altra chiamata ajax.
+    Ciò significa che il filtro per genere deve essere applicato lato back-end, ossia il php restituisce solo i dischi del genere selezionato.
   */
 
   // -------------- Initialization of Variables --------------
 
   $title = 'PHP Ajax Discs';
-  $genres_list = 'genre';
+  $subtitle = 'AJAX call - jQuery & Handlebars';
+  $credits = 'Patrizia Crimi';
+  $genres_list = [];
 ?>
 
 <!-- ............................. HTML ............................. -->
@@ -31,45 +32,69 @@
   </head>
   <body>
     <div id="page-wrapper">
-      <div class="container">
-        <div class="row">
-          <h1><?php echo($title) ?></h1>
-        </div>
-        <!-- Select and sort section -->
-        <div class="row row-md">
-          <div class="col-12 col-lg-6">
-            <p>Select the music genre:</p>
-            <select id="select-genre">
-              <option value="all">All</option>
-              <option value="<?php echo($genres) ?>">
-                <?php echo($genres) ?>
-              </option>
-            </select>
+      <!-- Header -->
+      <header>
+        <div class="container">
+          <div class="row">
+            <h1><?php echo($title) ?></h1>
+            <h2><?php echo($subtitle) ?></h2>
           </div>
-          <div class="col-12 col-lg-6">
-            <p>Sort playlist by release year:</p>
-            <select id="sort-year">
-              <option disabled value="">Please select</option>
-              <option value="ascending">Ascending</option>
-              <option value="descending">Descending</option>
-            </select>
+        </div>  <!-- Closing Header container -->
+      </header>
+      <!-- Main -->
+      <main>
+        <div class="container">
+          <!-- SECTION - Select and sort -->
+          <section id="select-sorting">
+            <div class="row row-md">
+              <div class="col-12 col-lg-6">
+                <p>Select the music genre:</p>
+                <select id="select-genre">
+                  <option value="all">All</option>
+                  <option value="<?php echo($genres) ?>">
+                    <?php echo($genres) ?>
+                  </option>
+                </select>
+              </div>
+              <div class="col-12 col-lg-6">
+                <p>Sort playlist by release year:</p>
+                <select id="sort-year">
+                  <option disabled value="">Please select</option>
+                  <option value="ascending">Ascending</option>
+                  <option value="descending">Descending</option>
+                </select>
+              </div>
+            </div>
+          </section>
+          <!-- SECTION - Music discs cards -->
+          <section id="music-discs">
+            <div class="row">
+              <div id="cards-container">
+                <!-- Here the template will be appended -->
+              </div>
+            </div>
+          </section>
+        </div>  <!-- Closing Main container -->
+      </main>
+      <!-- Footer -->
+      <footer>
+        <div class="container">
+          <div class="row">
+            <small>
+              <span>Powered by: </span>
+              <span><?php echo($credits) ?></span>
+            </small>
           </div>
-        </div>
-        <!-- Music discs cards section -->
-        <div class="row">
-          <div id="cards-container">
-
-          </div>
-        </div>
-      </div>  <!-- Closing container -->
+        </div>  <!-- Closing Footer container -->
+      </footer>
     </div>  <!-- Closing page-wrapper -->
 
     <!--........................ Template Handlebars ........................-->
     <script id="card-template" type="text/x-handlebars-template">
       <div class="music-disc">
         <img class="disc-poster" src="{{poster}}" alt="{{title}}">
-        <h2>{{title}}</h2>
-        <h3>{{author}}</h3>
+        <h3>{{title}}</h3>
+        <h3>{{author}}</h4>
         <small>{{year}}</small>
       </div>
     </script>

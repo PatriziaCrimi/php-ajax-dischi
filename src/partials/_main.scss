@@ -8,7 +8,7 @@ select#sort-year {
   border-radius: 5px;
   border: 2px solid #fff;
   background-color: #b3b3b3;
-  transition: filter 0.25s, border 0.25s;
+  transition: all 0.25s ease-in-out;
 }
 
 select#select-genre:hover,
@@ -25,10 +25,10 @@ select#sort-year:hover {
 
 #cards-container > .music-disc {
   padding: 15px;
-  transition: all 0.25s;
+  transition: all 0.25s ease-in-out;
 }
 
-.music-disc.active:hover {
+.music-disc:hover {
   cursor: pointer;
   color: #1db954;
   filter: brightness(1.5);
