@@ -6,7 +6,7 @@
   // -------------- Initialization of Variables --------------
 
   $title = 'PHP Ajax Discs';
-  $subtitle = 'PHP include';
+  $subtitle = 'PHP include & Handlebars';
   $credits = 'Patrizia Crimi';
 
   // -------------- Dynamically generated genres for the select --------------
@@ -59,13 +59,6 @@
                 <p>Select the music genre:</p>
                 <select id="select-genre">
                   <option value="all">All</option>
-                  <?php foreach ($genres_list as $genre) { ?>
-                      <option value="<?php echo($genre) ?>">
-                        <?php echo($genre) ?>
-                      </option>
-                    <?php
-                  }
-                  ?>
                 </select>
               </div>
               <div class="col-12 col-lg-6">
@@ -112,6 +105,8 @@
     </div>  <!-- Closing page-wrapper -->
 
     <!--........................ Template Handlebars ........................-->
+
+    <!-- Cards Template -->
     <script id="cards-template" type="text/x-handlebars-template">
       <div class="music-disc">
         <img class="disc-poster" src="{{poster}}" alt="{{title}}">
@@ -119,6 +114,11 @@
         <h3>{{author}}</h4>
         <small>{{year}}</small>
       </div>
+    </script>
+
+    <!-- Select-Options Template -->
+    <script id="options-template" type="text/x-handlebars-template">
+      <option value="{{genre}}">{{genre}}</option>
     </script>
   </body>
 </html>

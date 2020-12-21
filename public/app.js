@@ -101,13 +101,10 @@ $(document).ready(function () {
   // To print music discs on screen
 
   var source_cards = $("#cards-template").html();
-  var template_cards = Handlebars.compile(source_cards);
-  /*
-  // To print genres in the selection-options
-  const source_options = $("#options-template").html();
-  const template_options = Handlebars.compile(source_options);
-  */
-  // ------------------- FUNCTIONS -------------------
+  var template_cards = Handlebars.compile(source_cards); // To print genres in the selection-options
+
+  var source_options = $("#options-template").html();
+  var template_options = Handlebars.compile(source_options); // ------------------- FUNCTIONS -------------------
   // Error message when AJAX call fails
 
   function errorMessage() {
@@ -159,18 +156,20 @@ $(document).ready(function () {
 
 
         for (var _i = 0; _i < genres_list.length; _i++) {
-          /*
           // ********** OPTION 1 - Using Handlebars **********
           // Storing the genres to be printed in a variable
-          let context_options = {
-            'genre': genres_list[i],
-          };
-          // Storing the data in a variable and printing them on screen
-          let html_options = template_options(context_options);
+          var context_options = {
+            'genre': genres_list[_i]
+          }; // Storing the data in a variable and printing them on screen
+
+          var html_options = template_options(context_options);
           $('#select-genre').append(html_options);
-          */
+          /*
           // **********  OPTION 2 - Printing using jQuery & Template Literal **********
-          $('#select-genre').append("\n            <option value=\"".concat(genres_list[_i], "\">").concat(genres_list[_i], "</option>\n            "));
+          $('#select-genre').append(`
+            <option value="${genres_list[i]}">${genres_list[i]}</option>
+            `);
+          */
         }
       },
       error: function error() {

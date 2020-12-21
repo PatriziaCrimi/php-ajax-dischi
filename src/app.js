@@ -11,11 +11,9 @@ $(document).ready(function() {
   const source_cards = $("#cards-template").html();
   const template_cards = Handlebars.compile(source_cards);
 
-  /*
   // To print genres in the selection-options
   const source_options = $("#options-template").html();
   const template_options = Handlebars.compile(source_options);
-  */
 
 
   // ------------------- FUNCTIONS -------------------
@@ -72,7 +70,7 @@ $(document).ready(function() {
         // Scrolling the array of genres
         for (let i = 0; i < genres_list.length; i++) {
 
-          /*
+
           // ********** OPTION 1 - Using Handlebars **********
           // Storing the genres to be printed in a variable
           let context_options = {
@@ -81,13 +79,13 @@ $(document).ready(function() {
           // Storing the data in a variable and printing them on screen
           let html_options = template_options(context_options);
           $('#select-genre').append(html_options);
-          */
 
-
+          /*
           // **********  OPTION 2 - Printing using jQuery & Template Literal **********
           $('#select-genre').append(`
             <option value="${genres_list[i]}">${genres_list[i]}</option>
             `);
+          */
         }
       },
       error: function() {

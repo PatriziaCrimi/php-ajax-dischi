@@ -107,7 +107,24 @@ if(!empty($_GET) && !empty($_GET['genre'])) {
 } else {
   // If there are no parameters in the query string OR 'genre' is empty
   $filtered_discs_list = $discs_list;
-}
+};
+
+
+// ---------------------------- SORT PER YEAR ----------------------------
+
+// Storing the GET parameter 'sort' in a variable
+$sort = $_GET['sort'];
+// If "ascending" is selected, it is sort by ascending order
+if($sort === 'ascending') {
+  usort($discs_list, function($disc1, $disc2) {
+      return $disc1['year'] <=> $disc2['year'];
+  });
+// If "descending" is selected, it is sort by descending order
+} else if ($sort === 'descending') {
+  usort($discs_list, function($disc1, $disc2) {
+      return $disc2['year'] <=> $disc1['year'];
+  });
+};
 
 // ---------------------------- Verify AJAX request ----------------------------
 
@@ -118,23 +135,6 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
   //request is ajax
   header('Content-Type: application/json');
   echo json_encode($filtered_discs_list);
-
-} else {
-  // ***** The following code must be run only for the vers-php (index.php) *****
-
-  // ---------------------------- SORT PER YEAR ----------------------------
-  $sort = $_GET['sort'];
-  // If "ascending" is selected, it is sort by ascending order
-  if($sort === 'ascending') {
-    usort($discs_list, function($disc1, $disc2) {
-        return $disc1['year'] <=> $disc2['year'];
-    });
-  // If "descending" is selected, it is sort by descending order
-  } else if ($sort === 'descending') {
-    usort($discs_list, function($disc1, $disc2) {
-        return $disc2['year'] <=> $disc1['year'];
-    });
-  }
 };
 
 ?>
